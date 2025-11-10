@@ -4,6 +4,17 @@ import './QuestionCard.css';
 const QuestionCard = ({ current, onDecisionSubmit }) => {
   const [selected, setSelected] = useState('A');
 
+  if (!current) {
+    return (
+      <article className="question-card">
+        <h2 className="question-card__title">Game Complete!</h2>
+        <p className="question-card__question">
+          You have completed all available questions. Check your final statistics!
+        </p>
+      </article>
+    );
+  }
+
   const handleConfirmClick = () => {
     if (selected) {
       onDecisionSubmit(selected);
