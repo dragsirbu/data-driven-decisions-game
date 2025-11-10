@@ -1,0 +1,219 @@
+/* Base card */
+.data-card {
+  width: 100%;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  background-color: #ffffff;
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.06);
+  color: #0f172a;
+  cursor: pointer;
+  transition: box-shadow 0.18s ease-out, transform 0.18s ease-out, border-color 0.18s ease-out,
+    background-color 0.18s ease-out;
+  outline: none;
+}
+
+.data-card:hover {
+  border-color: #bfdbfe;
+  box-shadow: 0 18px 38px rgba(15, 23, 42, 0.09);
+  transform: translateY(-1px);
+}
+
+/* Closed state: just centered title */
+
+.data-card--closed {
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  text-align: center;
+}
+
+.data-card__title--center {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+/* Open state */
+
+.data-card--open {
+  padding: 14px 16px 16px;
+}
+
+/* Header */
+
+.data-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.data-card__eyebrow {
+  margin: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #9ca3af;
+}
+
+.data-card__title {
+  margin: 2px 0 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.data-card__chip {
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+  background-color: #f9fafb;
+  font-size: 0.7rem;
+  color: #6b7280;
+  white-space: nowrap;
+}
+
+/* Body / image */
+
+.data-card__body {
+  margin-top: 6px;
+}
+
+.data-card__image {
+  width: 100%;
+  height: 180px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  object-fit: cover;
+  background-color: #f3f4f6;
+}
+
+/* Placeholder if no image is provided */
+.data-card__image--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9ca3af;
+  font-size: 0.85rem;
+}
+
+/* Keyboard focus */
+.data-card:focus-visible {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 2px rgba(129, 140, 248, 0.45);
+}
+
+/* Small screens */
+@media (max-width: 640px) {
+  .data-card--open {
+    padding: 12px 12px 14px;
+  }
+
+  .data-card__image {
+    height: 160px;
+  }
+}
+
+/* === Chart styles === */
+
+.data-card__chart {
+  margin-top: 4px;
+}
+
+.data-card__chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.data-card__axis-label {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.data-card__axis-label--secondary {
+  color: #9ca3af;
+}
+
+/* Bars layout */
+
+.data-card__chart-body {
+  margin-top: 2px;
+}
+
+.data-card__chart-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  height: 150px;
+}
+
+/* Single-series groups */
+
+.chart-bar-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end; /* so bars sit on the bottom */
+  gap: 4px;
+  height: 100%; /* percentage bar heights have a reference */
+}
+
+/* Grouped bars per category */
+
+.chart-bar-group--grouped {
+  justify-content: flex-end;
+}
+
+/* Individual bar */
+
+.chart-bar {
+  width: 14px;
+  border-radius: 6px 6px 0 0;
+  background-color: #e5e7eb;
+  transition: height 0.2s ease-out, background-color 0.2s ease-out;
+}
+
+/* Default / primary bar color */
+
+.chart-bar--primary,
+.chart-bar--series-0 {
+  background: linear-gradient(180deg, #0ea5e9, #38bdf8);
+}
+
+/* Additional series colors */
+
+.chart-bar--series-1 {
+  background: linear-gradient(180deg, #22c55e, #4ade80);
+}
+
+.chart-bar--series-2 {
+  background: linear-gradient(180deg, #f97316, #fb923c);
+}
+
+.chart-bar--series-3 {
+  background: linear-gradient(180deg, #6366f1, #818cf8);
+}
+
+/* Category labels */
+
+.chart-bar__label {
+  font-size: 0.7rem;
+  color: #6b7280;
+  text-align: center;
+}
+
+/* Notes */
+
+.data-card__chart-notes {
+  margin-top: 6px;
+  font-size: 0.75rem;
+  color: #6b7280;
+}

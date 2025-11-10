@@ -1,0 +1,169 @@
+.statistics-panel {
+  width: 100%;
+  border-radius: 16px;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  padding: 16px 18px 18px;
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.06);
+  text-align: left;
+  box-sizing: border-box;
+}
+
+.statistics-panel__header {
+  margin-bottom: 10px;
+}
+
+.statistics-panel__title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.statistics-panel__subtitle {
+  margin: 4px 0 0;
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+/* Grid of 4 charts */
+
+.statistics-panel__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 10px;
+}
+
+/* Each metric card */
+
+.metric-card {
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  padding: 10px 10px 10px;
+  background-color: #f9fafb;
+  box-sizing: border-box;
+}
+
+.metric-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.metric-card__label {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.metric-card__value {
+  margin: 2px 0 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.metric-card__unit {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: #6b7280;
+  margin-left: 2px;
+}
+
+.metric-card__delta {
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  border: 1px solid #e5e7eb;
+  background-color: #ffffff;
+  color: #6b7280;
+  white-space: nowrap;
+}
+
+.metric-card__delta--up {
+  border-color: #bbf7d0;
+  background-color: #ecfdf5;
+  color: #15803d;
+}
+
+.metric-card__delta--down {
+  border-color: #fecaca;
+  background-color: #fef2f2;
+  color: #b91c1c;
+}
+
+.metric-card__delta--flat {
+  border-color: #e5e7eb;
+  background-color: #f9fafb;
+  color: #6b7280;
+}
+
+/* Bar chart */
+
+.metric-chart {
+  margin-top: 4px;
+}
+
+.metric-chart__bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  height: 70px; /* chart height */
+}
+
+.metric-chart__bar {
+  flex: 1;
+  border-radius: 6px 6px 0 0;
+  background: #e5e7eb;
+  transition: height 0.2s ease-out, background-color 0.2s ease-out;
+}
+
+/* Color variants */
+
+.metric-chart__bar--revenue {
+  background: linear-gradient(180deg, #0ea5e9, #38bdf8);
+}
+
+.metric-chart__bar--userbase {
+  background: linear-gradient(180deg, #22c55e, #4ade80);
+}
+
+.metric-chart__bar--runway {
+  background: linear-gradient(180deg, #f97316, #fb923c);
+}
+
+.metric-chart__bar--popularity {
+  background: linear-gradient(180deg, #6366f1, #818cf8);
+}
+
+.metric-chart__ticks {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4px;
+  font-size: 0.65rem;
+  color: #9ca3af;
+}
+
+.metric-chart__tick {
+  flex: 1;
+  text-align: center;
+}
+
+/* Helper text */
+
+.metric-card__helper {
+  margin: 6px 0 0;
+  font-size: 0.7rem;
+  color: #6b7280;
+}
+
+/* Responsive */
+
+@media (max-width: 640px) {
+  .statistics-panel__grid {
+    grid-template-columns: 1fr;
+  }
+}
