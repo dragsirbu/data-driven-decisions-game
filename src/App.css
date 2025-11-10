@@ -1,10 +1,24 @@
+/* Reset background color for the entire page */
+html,
+body {
+  background-color: white;
+  margin: 0;
+  padding: 0;
+}
+
 .app-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  margin: 0 auto;
+  background-color: white;
+}
+
+.game-content {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: 2rem;
-  max-width: 100%;
-  margin: 0 auto;
   padding: 40px;
 }
 

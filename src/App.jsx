@@ -2,6 +2,7 @@ import { useState } from 'react';
 import QuestionCard from './components/QuestionCard';
 import DataCard from './components/DataCard';
 import StatisticsPanel from './components/StatisticsPanel';
+import GameHeader from './components/GameHeader';
 import { questions } from './data/data.js';
 import './App.css';
 
@@ -52,37 +53,40 @@ function App() {
 
   return (
     <div className="app-container">
-      <div className="left-panel">
-        <QuestionCard
-          current={current}
-          onDecisionSubmit={(selectedOption) => {
-            // Calculate impacts of the current decision
-            const impacts = calculateMetricChanges(current, selectedOption);
-            if (impacts) {
-              updateGameStats(impacts);
-            }
+      <GameHeader />
+      <div className="game-content">
+        <div className="left-panel">
+          <QuestionCard
+            current={current}
+            onDecisionSubmit={(selectedOption) => {
+              // Calculate impacts of the current decision
+              const impacts = calculateMetricChanges(current, selectedOption);
+              if (impacts) {
+                updateGameStats(impacts);
+              }
 
-            // Filter out the current question and get next one
-            const remainingQuestions = availableQuestions.filter(q => q.id !== current.id);
-            setAvailableQuestions(remainingQuestions);
-            const nextQuestion = getRandomQuestion(remainingQuestions);
-            setCurrent(nextQuestion);
-          }}
-        />
-      </div>
-      <div className="middle-panel">
-        {current?.dataCards?.map((dataCard, index) => (
-          <DataCard
-            key={index}
-            title={dataCard.title}
-            label={dataCard.label}
-            imageSrc={dataCard.imageSrc}
-            chartData={dataCard.chartData}
+              // Filter out the current question and get next one
+              const remainingQuestions = availableQuestions.filter((q) => q.id !== current.id);
+              setAvailableQuestions(remainingQuestions);
+              const nextQuestion = getRandomQuestion(remainingQuestions);
+              setCurrent(nextQuestion);
+            }}
           />
-        ))}
-      </div>
-      <div className="right-panel">
-        <StatisticsPanel metrics={gameStats} />
+        </div>
+        <div className="middle-panel">
+          {current?.dataCards?.map((dataCard, index) => (
+            <DataCard
+              key={index}
+              title={dataCard.title}
+              label={dataCard.label}
+              imageSrc={dataCard.imageSrc}
+              chartData={dataCard.chartData}
+            />
+          ))}
+        </div>
+        <div className="right-panel">
+          <StatisticsPanel metrics={gameStats} />
+        </div>
       </div>
     </div>
   );
