@@ -10,10 +10,10 @@ function App() {
   const [availableQuestions, setAvailableQuestions] = useState([...questions]);
   const [current, setCurrent] = useState(() => getRandomQuestion(availableQuestions));
   const [gameStats, setGameStats] = useState({
-    revenue: [12],
-    userbase: [4],
-    runway: [10],
-    popularity: [55],
+    customerBase: [25],
+    customerSatisfaction: [25],
+    revenue: [25],
+    dataMaturity: [25],
   });
 
   // Function to calculate impact of decisions on metrics
@@ -25,10 +25,10 @@ function App() {
     const impact = question.impacts[selectedOption] || {};
 
     return {
+      customerBase: impact.customerBase || 0,
+      customerSatisfaction: impact.customerSatisfaction || 0,
       revenue: impact.revenue || 0,
-      userbase: impact.userbase || 0,
-      runway: impact.runway || 0,
-      popularity: impact.popularity || 0,
+      dataMaturity: impact.dataMaturity || 0,
     };
   };
 

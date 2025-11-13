@@ -1,6 +1,20 @@
 import './StatisticsPanel.css';
 
 const metricDefinitions = {
+  customerBase: {
+    id: 'customerBase',
+    label: 'Customer Base',
+    unit: 'k users',
+    color: 'userbase',
+    helper: 'Active users / adoption over rounds',
+  },
+  customerSatisfaction: {
+    id: 'customerSatisfaction',
+    label: 'Customer Satisfaction',
+    unit: '%',
+    color: 'popularity',
+    helper: 'Activation, CSAT, and qualitative sentiment proxy',
+  },
   revenue: {
     id: 'revenue',
     label: 'Revenue',
@@ -8,33 +22,19 @@ const metricDefinitions = {
     color: 'revenue',
     helper: 'Monthly recurring revenue',
   },
-  userbase: {
-    id: 'userbase',
-    label: 'Userbase',
-    unit: 'k users',
-    color: 'userbase',
-    helper: 'Active users per round',
-  },
-  runway: {
-    id: 'runway',
-    label: 'Runway',
-    unit: 'months',
-    color: 'runway',
-    helper: 'Cash runway remaining',
-  },
-  popularity: {
-    id: 'popularity',
-    label: 'Popularity',
+  dataMaturity: {
+    id: 'dataMaturity',
+    label: 'Data Maturity',
     unit: 'score',
-    color: 'popularity',
-    helper: 'Brand and product awareness',
+    color: 'runway',
+    helper: 'Quality of data, instrumentation, and decision process',
   },
 };
 
 function MetricChart({ label, unit, values, colorClass, helper }) {
   if (!values || values.length === 0) return null;
 
-  const maxValue = Math.max(...values);
+  const maxValue = 100;
   const latest = values[values.length - 1];
   const previous = values.length > 1 ? values[values.length - 2] : latest;
   const diff = latest - previous;
@@ -89,7 +89,7 @@ function MetricChart({ label, unit, values, colorClass, helper }) {
         </div>
       </div>
 
-      <p className="metric-card__helper">{helper}</p>
+      {/* <p className="metric-card__helper">{helper}</p> */}
     </div>
   );
 }
@@ -108,12 +108,12 @@ const StatisticsPanel = ({ metrics }) => {
       </div>
 
       <div className="statistics-panel__grid">
-        {Object.entries(metricDefinitions).map(([key, definition]) => (
+        {Object.values(metricDefinitions).map((definition) => (
           <MetricChart
-            key={key}
+            key={definition.id}
             label={definition.label}
             unit={definition.unit}
-            values={metrics[key]}
+            values={metrics?.[definition.id]}
             colorClass={definition.color}
             helper={definition.helper}
           />
