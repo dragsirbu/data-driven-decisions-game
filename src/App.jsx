@@ -149,7 +149,7 @@ function App() {
         <div className="middle-panel">
           {current?.dataCards?.map((dataCard, index) => (
             <DataCard
-              key={index}
+              key={`${current?.id}-${index}`}
               title={dataCard.title}
               label={dataCard.label}
               imageSrc={dataCard.imageSrc}
