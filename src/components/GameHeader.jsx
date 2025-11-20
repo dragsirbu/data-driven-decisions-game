@@ -22,8 +22,7 @@ function GameHeader() {
           </li>
           <li>Try to balance short-term gains with long-term sustainability</li>
           <li>
-            Play through all rounds. You “win” if you reach the targets with runway left and most of
-            your decisions were data-driven, not guesses.
+            Play through all rounds. You “win” if you reach a collective KPI score of 165.
           </li>
         </ul>
       </div>

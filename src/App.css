@@ -42,3 +42,34 @@ body {
   text-align: right;
   margin-left: 100px;
 }
+
+/* End-game overlay styles */
+.game-result-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.game-result-box {
+  background: #fff;
+  padding: 24px 28px;
+  border-radius: 8px;
+  max-width: 520px;
+  width: 90%;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+.game-result-message {
+  margin-top: 12px;
+  font-size: 1rem;
+  color: #333;
+}
+
